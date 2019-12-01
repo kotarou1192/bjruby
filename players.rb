@@ -7,15 +7,15 @@ class Players
   end
 
   def pull
-    hands = @card.draw
-    point = hands.pop
-    puts hands.pop.to_s + 'の' + point.to_s + 'を引いた'
+    hands = @card.draw(1).flatten
+    point = hands[1]
+    puts hands[0].to_s + 'の' + point.to_s + 'を引いた'
     point
   end
 
   def pull_secretly
-    hands = @card.draw
-    point = hands.pop
+    hands = @card.draw(1).flatten
+    point = hands[1]
     puts 'カードを引いた'
     point
   end
