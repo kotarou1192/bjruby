@@ -36,7 +36,7 @@ class GameControl
       puts 'あなたの負け'
     end
   end
-  
+
   def continue?
     puts 'カードを引きますか[y/n]'
     line = gets.to_s
@@ -47,7 +47,7 @@ class GameControl
         puts 'バースト！あなたの負け'
         exit
       end
-      return true
+      true
     elsif line =~ /[Nn]/
       puts '結果発表'
       return false
@@ -60,32 +60,31 @@ class GameControl
   def add_your_score
     score = @players.pull
     @score_of_player += if score > 9
-                        10
-                      else
-                        score
-                      end
+                          10
+                        else
+                          score
+                        end
   end
 
   def add_dealer_score
     score = @players.pull
     @score_of_dealer += if score > 9
-                        10
-                      else
-                        score
-                      end
+                          10
+                        else
+                          score
+                        end
   end
 
   def add_dealer_score_secretly
     score = @players.pull_secretly
     @score_of_dealer += if score > 9
-                        10
-                      else
-                        score
-                      end
+                          10
+                        else
+                          score
+                        end
   end
 
   def show_your_score
     print "現在のあなたの得点は#{@score_of_player}です。"
   end
-
 end
